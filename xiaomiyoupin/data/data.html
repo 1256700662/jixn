@@ -1,0 +1,773 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        data1 = [
+            {
+                "src": "https://img.youpin.mi-img.com/jianyu/4c4a02d028937e9fa9ff626b1c8a8e8d.png?w=126&h=126",
+                "title": "每日新品"
+            },
+            {
+                "src": "https://img.youpin.mi-img.com/jianyu/5deb3f0d1fc7ea15b0e5f39c457b2208.png?w=126&h=126",
+                "title": "小米众筹"
+            },
+            {
+                "src": "https://img.youpin.mi-img.com/jianyu/7d8d0f4490bc78d4623884229b4802b4.png?w=126&h=126",
+                "title": "限时抢购"
+            },
+            {
+                "src": "https://img.youpin.mi-img.com/jianyu/3d6d5f692237cd073cd0e2bea55216ba.png?w=126&h=126",
+                "title": "热销榜单"
+            },
+            {
+                "src": "https://img.youpin.mi-img.com/jianyu/5417dd98e6ccfc730438e7afbd6abb12.png?w=126&h=126",
+                "title": "助力免单"
+            }
+        ]
+
+        // 小米众筹
+        data2 = [
+            [
+                {
+                    "src": "https://img.youpin.mi-img.com/shopmain/83d8d9d173b54db2b0d7bdb97ce50291.png?w=800&h=800",
+                    "p1": "云米互联网冰箱T型三门...",
+                    "p2": "21大屏幕， 三室三温， AI语音控制， 智能互联 ",
+                    "price": "¥4599",
+                    "person": "10人支持",
+                    "person2": "5%"
+                },
+                {
+                    "src": "https://img.youpin.mi-img.com/shopmain/31a1dc07e7d00ad7703f8b43baee107c.png?w=800&h=800",
+                    "p1": "双重防蓝光智能变色眼镜",
+                    "price": "¥199起",
+                    "person": "2520人支持",
+                    "person2": "315%"
+                },
+                {
+                    "src": "https://img.youpin.mi-img.com/shopmain/1ef7095f5231afb8e9f2cf396195fd47.png?w=800&h=800",
+                    "p1": "HITH智能无线足浴器Q2",
+                    "price": "¥599",
+                    "person": "8544人支持",
+                    "person2": "1708%"
+                }
+            ]
+        ]
+        // 限时购 新品 热门
+
+        // 专属推荐
+        data3 = [
+    {
+        "src":"https://img.youpin.mi-img.com/shopmain/076ceb10e397f9aeff7c4caad4788584.png@base@tag=imgScale&F=webp?w=800&h=800",
+        "p1":"【包邮】严屹宽代言 3D浮动刀头...",
+        "p2":"映趣BlackStone剃须刀",
+        "p3":"映趣BlackStone剃须刀",
+        "span1":"¥",
+        "span2":"25"
+    },
+    {
+        "src":"https://img.youpin.mi-img.com/800_pic/279e3de3e0d218fd869b8219124667c6.png@base@tag=imgScale&F=webp",
+        "p1":"黑胡桃原木，榫卯结构，悬浮式...",
+        "p2":"铜师傅安格尔黑胡桃原...",
+        "p3":"铜师傅安格尔黑胡桃原木餐桌椅",
+        "span1":"¥",
+        "span2":"279"
+    },
+    {
+        "src":"https://img.youpin.mi-img.com/800_pic/29394a59030ae9f6795223cab548b55d.png@base@tag=imgScale&F=webp",
+        "p1":"铜基纤维，抗菌防螨，柔软轻盈...",
+        "p2":"COMO LIVING 铜纤维抗...",
+        "p3":"COMO LIVING 铜纤维抗菌防螨保暖被",
+        "span1":"¥",
+        "span2":"179"
+    },
+    {
+        "src":"https://img.youpin.mi-img.com/shopmain/b54a55a8106ba88dd13aea17443b9060.png@base@tag=imgScale&F=webp?w=800&h=800",
+        "p1":"茅台飞天，国货匠心，酿造高品...",
+        "p2":"贵州茅台飞天酒 酱香型...",
+        "p3":"贵州茅台飞天酒 酱香型白酒43度500ml单瓶/整箱装",
+        "span1":"¥",
+        "span2":"999"
+    },
+    {
+        "src":"https://img.youpin.mi-img.com/800_pic/511f995b5f9f18dd49c38b7fa48f14a2.png@base@tag=imgScale&F=webp",
+        "p1":"获红点设计奖，随心煎炒蒸煮，...",
+        "p2":"BergHOFF Leo不粘锅套...",
+        "p3":"BergHOFF Leo不粘锅套装",
+        "span1":"¥",
+        "span2":"44"
+    },
+    {
+        "src":"https://img.youpin.mi-img.com/800_pic/c2588b8797cf9b5623eca9c30471dd6b.png@base@tag=imgScale&F=webp",
+        "p1":"全面保护牙龈，持续清新口气，...",
+        "p2":"青衣美人辅酶Q10绿茶牙...",
+        "p3":"青衣美人辅酶Q10绿茶牙膏",
+        "span1":"¥",
+        "span2":"11"
+    },
+    {
+        "src":"https://img.youpin.mi-img.com/800_pic/eb390de4768ddae7ea75741f6e2d49d0.png@base@tag=imgScale&F=webp",
+        "p1":"日本东丽超细软毛,镍银片植毛,...",
+        "p2":"贝医生牙刷（青春版）",
+        "p3":"贝医生牙刷（青春版）",
+        "span1":"¥",
+        "span2":"6.9"
+    },
+    {
+        "src":"https://img.youpin.mi-img.com/800_pic/27158dfe88dd03a04f62701717057ece.png@base@tag=imgScale&F=webp",
+        "p1":"50/60L 一级能效 智能APP操控 ...",
+        "p2":"云米互联网电热水器1A",
+        "p3":"云米互联网电热水器1A",
+        "span1":"¥",
+        "span2":"999"
+    },
+    {
+        "src":"https://img.youpin.mi-img.com/800_pic/e6c54af7ca8f7663b9b07290925446a1.png@base@tag=imgScale&F=webp",
+        "p1":"安全配方/科学亮白/强效清洁/持...",
+        "p2":"贝医生 0+美白牙膏",
+        "p3":"贝医生 0+美白牙膏",
+        "span1":"¥",
+        "span2":"17"
+    },
+    {
+        "src":"https://img.youpin.mi-img.com/800_pic/f292abe394e0582d9bb94ce8f8c7f20d.png@base@tag=imgScale&F=webp",
+        "p1":"快扫不扬尘，双刷不漏灰，静电...",
+        "p2":"宜洁无线手持扫地机",
+        "p3":"宜洁无线手持扫地机",
+        "span1":"¥",
+        "span2":"12.9"
+    },
+    {
+        "src":"https://img.youpin.mi-img.com/800_pic/67009b89b616c4082c9371f5ac82c2da.png@base@tag=imgScale&F=webp",
+        "p1":"央企信誉，Au9999精品，储值理...",
+        "p2":"中国黄金投资金条",
+        "p3":"中国黄金投资金条",
+        "span1":"¥",
+        "span2":"1830"
+    },
+    {
+        "src":"https://img.youpin.mi-img.com/shopmain/3edb821cb26dea699147b4a2ed89e06a.png@base@tag=imgScale&F=webp?w=800&h=800",
+        "p1":"3D刀头顺滑贴面,智能防夹须,全...",
+        "p2":"SO WHITE 3D智控剃须刀...",
+        "p3":"SO WHITE 3D智控剃须刀",
+        "span1":"¥",
+        "span2":"99"
+    },
+    {
+        "src":"https://img.youpin.mi-img.com/800_pic/171e6fb1c52ff95dfd5d189076dcd410.png@base@tag=imgScale&F=webp",
+        "p1":"40/50/60L 2级能效 质保8年 2...",
+        "p2":"云米机械式电热水器",
+        "p3":"云米机械式电热水器",
+        "span1":"¥",
+        "span2":"599"
+    },
+    {
+        "src":"https://img.youpin.mi-img.com/shopmain/46bd394ed180bf6790a747cd7deb9995.png@base@tag=imgScale&F=webp?w=800&h=800",
+        "p1":"来自美国黑科技 终身免更换镁棒...",
+        "p2":"佳尼特免更换镁棒电热...",
+        "p3":"佳尼特免更换镁棒电热水器（旗舰款）",
+        "span1":"¥",
+        "span2":"1999"
+    },
+    {
+        "src":"https://img.youpin.mi-img.com/shopmain/71ca96d0a08d05909ac087660efa9874.png@base@tag=imgScale&F=webp?w=800&h=800",
+        "p1":"经得起岁月的验证，一脉相承，...",
+        "p2":"茅台王子酒 酱香型白酒...",
+        "p3":"茅台王子酒 酱香型白酒53度 500ml 普通版/2016版",
+        "span1":"¥",
+        "span2":"926"
+    },
+    {
+        "src":"https://img.youpin.mi-img.com/800_pic/c0e34cdb7fe962bd588ebbeb3d93d054.png@base@tag=imgScale&F=webp",
+        "p1":"吸湿速干，轻薄透气，四季适用",
+        "p2":"男子户外运动五件套 棉...",
+        "p3":"男子户外运动五件套 棉花史密斯",
+        "span1":"¥",
+        "span2":"59"
+    },
+    {
+        "src":"https://img.youpin.mi-img.com/800_pic/b40461e2faa14283bf0c690275803c4b.png@base@tag=imgScale&F=webp",
+        "p1":"【单件包邮】双口输出，双向18...",
+        "p2":"Redmi充电宝 20000mAh...",
+        "p3":"Redmi充电宝 20000mAh 快充版",
+        "span1":"¥",
+        "span2":"59"
+    },
+    {
+        "src":"https://img.youpin.mi-img.com/shopmain/dd904380b81f860d971afb9daf96b019.png@base@tag=imgScale&F=webp?w=800&h=800",
+        "p1":"只需30s就可以自己制作汽水、操...",
+        "p2":"北欧欧慕苏打水机 NSD...",
+        "p3":"北欧欧慕苏打水机 NSD2000白色1L",
+        "span1":"¥",
+        "span2":"29"
+    },
+    {
+        "src":"https://img.youpin.mi-img.com/800_pic/b622612131f9d8a692aca9ac47d44765.png@base@tag=imgScale&F=webp",
+        "p1":"专为运动男士设计，清洁肌肤，...",
+        "p2":"Adidas男士活力沐浴露",
+        "p3":"Adidas男士活力沐浴露",
+        "span1":"¥",
+        "span2":"18.5"
+    },
+    {
+        "src":"https://img.youpin.mi-img.com/shopmain/e364936dc52e54ee1089cdb2add07d00.png@base@tag=imgScale&F=webp?w=800&h=800",
+        "p1":"【包邮】10W大功率，4小时续航...",
+        "p2":"映趣理发器",
+        "p3":"映趣理发器",
+        "span1":"¥",
+        "span2":"72"
+    },
+    {
+        "src":"https://img.youpin.mi-img.com/800_pic/fa2fa362867dd960fc31efdbc2773ec7.png@base@tag=imgScale&F=webp",
+        "p1":"深层洁齿,小巧便携，杜邦刷毛，...",
+        "p2":"SO WHITE声波电动牙刷...",
+        "p3":"SO WHITE声波电动牙刷",
+        "span1":"¥",
+        "span2":"69"
+    },
+    {
+        "src":"https://img.youpin.mi-img.com/800_pic/ddb3fa0a165af4ed780545be9dc3a317.png@base@tag=imgScale&F=webp",
+        "p1":"金属刀身，自锁设计，30°锐角裁...",
+        "p2":"Fizz 美工刀",
+        "p3":"Fizz 美工刀",
+        "span1":"¥",
+        "span2":"9.9"
+    },
+    {
+        "src":"https://img.youpin.mi-img.com/shopmain/02867fcb0582f2a1130f96a90d5abb87.png@base@tag=imgScale&F=webp?w=800&h=800",
+        "p1":"24天续航 50米防水 12种运动模...",
+        "p2":"Amazfit GTR 智能手表...",
+        "p3":"Amazfit GTR 智能手表 47mm",
+        "span1":"¥",
+        "span2":"919"
+    },
+    {
+        "src":"https://img.youpin.mi-img.com/800_pic/aad0a6508d0e87d6de843e881c8bb14f.png@base@tag=imgScale&F=webp",
+        "p1":"Type-C+USB双接口，360°旋转，...",
+        "p2":"指思Type-C双接口U盘",
+        "p3":"指思Type-C双接口U盘",
+        "span1":"¥",
+        "span2":"55.9"
+    },
+    {
+        "src":"https://img.youpin.mi-img.com/800_pic/4d324e701eb27d2b67e434d350356454.png@base@tag=imgScale&F=webp",
+        "p1":"45天长续航，32克无感佩戴，全...",
+        "p2":"AMAZFIT 米动手表青春...",
+        "p3":"AMAZFIT 米动手表青春版Lite",
+        "span1":"¥",
+        "span2":"279"
+    },
+    {
+        "src":"https://img.youpin.mi-img.com/800_pic/c182892b15338b1e506531612c1bacb1.png@base@tag=imgScale&F=webp",
+        "p1":"温暖如初，茶香醇厚。茶水分离...",
+        "p2":"Fun Home 保温泡茶杯（...",
+        "p3":"Fun Home 保温泡茶杯（茶水分离）",
+        "span1":"¥",
+        "span2":"89"
+    },
+    {
+        "src":"https://img.youpin.mi-img.com/800_pic/011a92a7486de902022f68d9cc3b7075.png@base@tag=imgScale&F=webp",
+        "p1":"护脊结构，R角防磕碰，多重收纳...",
+        "p2":"样子103°人体工学床套...",
+        "p3":"样子103°人体工学床套装",
+        "span1":"¥",
+        "span2":"1699"
+    },
+    {
+        "src":"https://img.youpin.mi-img.com/800_pic/3e06bda7abfe0e8374a1b093a6ddadcd.png@base@tag=imgScale&F=webp",
+        "p1":"弯头设计，酷炫灯光，圆润插头...",
+        "p2":"WSKEN Type-C弯头数据...",
+        "p3":"WSKEN Type-C弯头数据线",
+        "span1":"¥",
+        "span2":"15.9"
+    },
+    {
+        "src":"https://img.youpin.mi-img.com/800_pic/e2a438b39ee11742f3422a03d741f8ed.png@base@tag=imgScale&F=webp",
+        "p1":"更轻薄，更锋利，更环保",
+        "p2":"火候纳米陶瓷刀",
+        "p3":"火候纳米陶瓷刀",
+        "span1":"¥",
+        "span2":"35"
+    },
+    {
+        "src":"https://img.youpin.mi-img.com/800_pic/5ce141ca6f528d85732971309b259e8f.png@base@tag=imgScale&F=webp",
+        "p1":"简洁无印设计，原装进口机芯，...",
+        "p2":"轻派轻时尚石英腕表",
+        "p3":"轻派轻时尚石英腕表",
+        "span1":"¥",
+        "span2":"99"
+    },
+    {
+        "src":"https://img.youpin.mi-img.com/800_pic/95bdd7f921a1247b0dfe132e676735a9.png@base@tag=imgScale&F=webp",
+        "p1":"加固牙齿硬度,长效冰爽口气",
+        "p2":"贝医生0+防蛀健齿牙膏",
+        "p3":"贝医生0+防蛀健齿牙膏",
+        "span1":"¥",
+        "span2":"12.9"
+    },
+    {
+        "src":"https://img.youpin.mi-img.com/800_pic/483a4331c3a0eaa9abd33e990ee9f67d.png@base@tag=imgScale&F=webp",
+        "p1":"调控菌群，清新口气，椒样薄荷",
+        "p2":"贝医生0+益生菌清新牙...",
+        "p3":"贝医生0+益生菌清新牙膏",
+        "span1":"¥",
+        "span2":"14.9"
+    },
+    {
+        "src":"https://img.youpin.mi-img.com/800_pic/f3694056a97e0ebbf881c57ac1d9836e.png@base@tag=imgScale&F=webp",
+        "p1":"折叠便携 24时续航 手机供电 3...",
+        "p2":"Snoppa折叠式手机三轴...",
+        "p3":"Snoppa折叠式手机三轴稳定器",
+        "span1":"¥",
+        "span2":"79"
+    },
+    {
+        "src":"https://img.youpin.mi-img.com/800_pic/28e4649c02da191f310f6fabd4cbed70.png@base@tag=imgScale&F=webp",
+        "p1":"高频振动磁悬浮马达，25天持久...",
+        "p2":"米家声波电动牙刷 T30...",
+        "p3":"米家声波电动牙刷 T300",
+        "span1":"¥",
+        "span2":"99"
+    },
+    {
+        "src":"https://img.youpin.mi-img.com/800_pic/b9eb783047a439f2f47b03ebe5cb4d75.png@base@tag=imgScale&F=webp",
+        "p1":"多重调节，进口实木，抑菌桌面...",
+        "p2":"爱果乐健康护脊儿童学...",
+        "p3":"爱果乐健康护脊儿童学习桌椅",
+        "span1":"¥",
+        "span2":"759"
+    },
+    {
+        "src":"https://img.youpin.mi-img.com/800_pic/8b3849cb17dc43b491be14beabc853dd.png@base@tag=imgScale&F=webp",
+        "p1":"迷你圆筒机身，深层剃净，持久...",
+        "p2":"SO WHITE 迷你电动剃须...",
+        "p3":"SO WHITE 迷你电动剃须刀",
+        "span1":"¥",
+        "span2":"69"
+    },
+    {
+        "src":"https://img.youpin.mi-img.com/800_pic/ed26a9f29260cc3ce360872349e35f42.png@base@tag=imgScale&F=webp",
+        "p1":"4级防泼水，10L容量，轻盈背负...",
+        "p2":"小米炫彩小背包",
+        "p3":"小米炫彩小背包",
+        "span1":"¥",
+        "span2":"29"
+    },
+    {
+        "src":"https://img.youpin.mi-img.com/800_pic/b9347a5b5df39155e20a4899216ba681.png@base@tag=imgScale&F=webp",
+        "p1":"即拖即干，0.75kg不费力，碳纤...",
+        "p2":"德尔玛喷水拖把",
+        "p3":"德尔玛喷水拖把",
+        "span1":"¥",
+        "span2":"55"
+    },
+    {
+        "src":"https://img.youpin.mi-img.com/800_pic/32afd1d9422ad32f210b2cf1c2084112.png@base@tag=imgScale&F=webp",
+        "p1":"一款可以自清洁保养的热水器",
+        "p2":"美的活水电热水器",
+        "p3":"美的活水电热水器",
+        "span1":"¥",
+        "span2":"2099"
+    },
+    {
+        "src":"https://img.youpin.mi-img.com/800_pic/1176290435b5312d49573d1c42a69f44.png@base@tag=imgScale&F=webp",
+        "p1":"德国精致竹纤维,活性生物肽,99...",
+        "p2":"贝医生0+竹纤维护龈牙...",
+        "p3":"贝医生0+竹纤维护龈牙膏",
+        "span1":"¥",
+        "span2":"21.9"
+    },
+    {
+        "src":"https://img.youpin.mi-img.com/800_pic/ec49f152ec244110560b9972249086ca.png@base@tag=imgScale&F=webp",
+        "p1":"起沙出油，甄选好蛋",
+        "p2":"一门心思白洋淀水乡麻...",
+        "p3":"一门心思白洋淀水乡麻鸭蛋 10枚 650g/750g",
+        "span1":"¥",
+        "span2":"29.9"
+    },
+    {
+        "src":"https://img.youpin.mi-img.com/800_pic/8febcb87324c04f4c1ad95c9a461e46f.png@base@tag=imgScale&F=webp",
+        "p1":"高颜值，轻薄锋利，免磨易洗",
+        "p2":"火候陶瓷刀砧板套装",
+        "p3":"火候陶瓷刀砧板套装",
+        "span1":"¥",
+        "span2":"29.9"
+    },
+    {
+        "src":"https://img.youpin.mi-img.com/800_pic/12e15f99ac0dc4b490f1c492c003936b.png@base@tag=imgScale&F=webp",
+        "p1":"双环刀网/干湿双剃/可直接冲洗...",
+        "p2":"米家电动剃须刀",
+        "p3":"米家电动剃须刀",
+        "span1":"¥",
+        "span2":"199"
+    },
+    {
+        "src":"https://img.youpin.mi-img.com/800_pic/457ffd7979ceb4ff586813680f7d38be.png@base@tag=imgScale&F=webp",
+        "p1":"净透毛孔，温和不紧绷，清爽控油",
+        "p2":"水肌美男士清爽控油洗...",
+        "p3":"水肌美男士清爽控油洗面奶",
+        "span1":"¥",
+        "span2":"39"
+    },
+    {
+        "src":"https://img.youpin.mi-img.com/800_pic/eff71bbcf6a6793a5a308b52e6b19efd.png@base@tag=imgScale&F=webp",
+        "p1":"磁悬浮声波马达 / 双效双刷头 ...",
+        "p2":"贝医生声波电动牙刷",
+        "p3":"贝医生声波电动牙刷",
+        "span1":"¥",
+        "span2":"99"
+    },
+    {
+        "src":"https://img.youpin.mi-img.com/800_pic/144baed8fc58f22c093980462ba1b3ba.png@base@tag=imgScale&F=webp",
+        "p1":"美酒与艺术呈现东方之美，贺岁...",
+        "p2":"贵州茅台王子酒己亥猪...",
+        "p3":"贵州茅台王子酒己亥猪年 酱香型白酒 53度 500ml",
+        "span1":"¥",
+        "span2":"738"
+    },
+    {
+        "src":"https://img.youpin.mi-img.com/800_pic/a2a0478b879b87b681e362bb5d450346.png@base@tag=imgScale&F=webp",
+        "p1":"不凡的生活造景师。两栖生态，...",
+        "p2":"画法几何两栖生态懒人...",
+        "p3":"画法几何两栖生态懒人鱼缸",
+        "span1":"¥",
+        "span2":"279"
+    },
+    {
+        "src":"https://img.youpin.mi-img.com/800_pic/02110f2934b446e36b66032f15fbfbf0.png@base@tag=imgScale&F=webp",
+        "p1":"进口刀片，适用各种食材，超高...",
+        "p2":"kalar削皮刀",
+        "p3":"kalar削皮刀",
+        "span1":"¥",
+        "span2":"25"
+    },
+    {
+        "src":"https://img.youpin.mi-img.com/800_pic/bed32ba86396b80d66a62fccc9eb2307.png@base@tag=imgScale&F=webp",
+        "p1":"【适用年龄3岁以上】【送礼佳品...",
+        "p2":"Wicue12寸液晶手写板",
+        "p3":"Wicue12寸液晶手写板",
+        "span1":"¥",
+        "span2":"99"
+    },
+    {
+        "src":"https://img.youpin.mi-img.com/800_pic/17f865fab2ee31ff637774831238083d.png@base@tag=imgScale&F=webp",
+        "p1":"底部钉子储藏室，钉子余量提醒...",
+        "p2":"LEMO乐迈 订书机",
+        "p3":"LEMO乐迈 订书机",
+        "span1":"¥",
+        "span2":"19.9"
+    },
+    {
+        "src":"https://img.youpin.mi-img.com/800_pic/0ddc852c4f8a4dc8c3ce912a9ada9965.png@base@tag=imgScale&F=webp",
+        "p1":"净肤清洁，补水控油，舒爽保湿",
+        "p2":"水肌美男士经典护肤套...",
+        "p3":"水肌美男士经典护肤套盒 升级款",
+        "span1":"¥",
+        "span2":"59"
+    },
+    {
+        "src":"https://img.youpin.mi-img.com/800_pic/a298287a9851b0c31b068d8885b08222.png@base@tag=imgScale&F=webp",
+        "p1":"多功能4合1，中性笔与自动铅组...",
+        "p2":"MODULE悦写 4合1多功能...",
+        "p3":"MODULE悦写 4合1多功能笔",
+        "span1":"¥",
+        "span2":"6.9"
+    },
+    {
+        "src":"https://img.youpin.mi-img.com/800_pic/031fb2c96583fb640c71d98d0d2617e5.png@base@tag=imgScale&F=webp",
+        "p1":"自动秒连，拿起耳机就能用 ，新...",
+        "p2":"Redmi AirDots真无线蓝...",
+        "p3":"Redmi AirDots真无线蓝牙耳机",
+        "span1":"¥",
+        "span2":"99.9"
+    },
+    {
+        "src":"https://img.youpin.mi-img.com/800_pic/6c868eb921668b5fadead83938e599e4.png@base@tag=imgScale&F=webp",
+        "p1":"天然乳胶，0胶水环保材质，医用...",
+        "p2":"8H天然乳胶床垫M1",
+        "p3":"8H天然乳胶床垫M1",
+        "span1":"¥",
+        "span2":"599"
+    },
+    {
+        "src":"https://img.youpin.mi-img.com/shopmain/fdfb91e1f815bba00b0dac25f0a0aad4.png@base@tag=imgScale&F=webp?w=800&h=800",
+        "p1":"【招财猫】车载香薰，三合一数...",
+        "p2":"车大福【招财猫】系列...",
+        "p3":"车大福【招财猫】系列—车载香薰/数据线/钥匙扣",
+        "span1":"¥",
+        "span2":"25"
+    },
+    {
+        "src":"https://img.youpin.mi-img.com/800_pic/88ae0e1f2f377b2cfa283758529ff6f8.png@base@tag=imgScale&F=webp",
+        "p1":"蓝牙5.0真无线真硬核，拿起开机...",
+        "p2":"QCY T1真无线双耳蓝牙...",
+        "p3":"QCY T1真无线双耳蓝牙耳机 青春版",
+        "span1":"¥",
+        "span2":"79.9"
+    },
+    {
+        "src":"https://img.youpin.mi-img.com/800_pic/29841bae70fdf9b19b8ee0f0b21f1319.png@base@tag=imgScale&F=webp",
+        "p1":"天然乳胶物理防螨，0胶水分层设...",
+        "p2":"8H乳胶床垫-青春版M1s",
+        "p3":"8H乳胶床垫-青春版M1s",
+        "span1":"¥",
+        "span2":"559"
+    },
+    {
+        "src":"https://img.youpin.mi-img.com/800_pic/6bbf762112363eb8bf26bf4aefa623ea.png@base@tag=imgScale&F=webp",
+        "p1":"镜面抛光，简约设计，握感十足",
+        "p2":"火候不锈钢刀叉勺",
+        "p3":"火候不锈钢刀叉勺",
+        "span1":"¥",
+        "span2":"15.9"
+    },
+    {
+        "src":"https://img.youpin.mi-img.com/800_pic/b3ce3707a3464f42802a8b1a402cecb7.png@base@tag=imgScale&F=webp",
+        "p1":"小巧便携，充电电池，断电保护...",
+        "p2":"Pinlo随手果汁机",
+        "p3":"Pinlo随手果汁机",
+        "span1":"¥",
+        "span2":"98"
+    },
+    {
+        "src":"https://img.youpin.mi-img.com/800_pic/479a939ba44003e1578b67e8a392c606.png@base@tag=imgScale&F=webp",
+        "p1":"六色出彩，旋转出芯，三角笔杆...",
+        "p2":"Fizz 手机支架中性笔",
+        "p3":"Fizz 手机支架中性笔",
+        "span1":"¥",
+        "span2":"9.9"
+    },
+    {
+        "src":"https://img.youpin.mi-img.com/800_pic/ef7e4dc2f08ffba4aea2cad20adf60b2.png@base@tag=imgScale&F=webp",
+        "p1":"雷总同款，成像清晰，轻松拍摄...",
+        "p2":"星特朗天文望远镜",
+        "p3":"星特朗天文望远镜",
+        "span1":"¥",
+        "span2":"589"
+    },
+    {
+        "src":"https://img.youpin.mi-img.com/shopmain/8956ce98bf2cdc8161db312ba1009d4e.png@base@tag=imgScale&F=webp?w=800&h=800",
+        "p1":"耐磨锰钢 文件整理 轻松分类 重...",
+        "p2":"纽赛回形针",
+        "p3":"纽赛回形针",
+        "span1":"¥",
+        "span2":"5"
+    },
+    {
+        "src":"https://img.youpin.mi-img.com/800_pic/2ada585decba4ca88db29d0738bd94cb.png@base@tag=imgScale&F=webp",
+        "p1":"适配主流桶装水规格，一触快速...",
+        "p2":"小浪自动上水器",
+        "p3":"小浪自动上水器",
+        "span1":"¥",
+        "span2":"69"
+    },
+    {
+        "src":"https://img.youpin.mi-img.com/shopmain/3f1f1dd8ba1b2eef0b8e2e29d54fdf63.png@base@tag=imgScale&F=webp?w=800&h=800",
+        "p1":"国家特证，专业防脱，16年专注...",
+        "p2":"丝域防脱姜暖洗发露(植...",
+        "p3":"丝域防脱姜暖洗发露(植萃配方，国家特征，防脱固发，6项专利）",
+        "span1":"¥",
+        "span2":"59"
+    },
+    {
+        "src":"https://img.youpin.mi-img.com/800_pic/56bfda79d17b9bfbb35db87ccaa07a90.png@base@tag=imgScale&F=webp",
+        "p1":"13/16L 2级能效 智能APP控制 变...",
+        "p2":"云米互联网燃气热水器...",
+        "p3":"云米互联网燃气热水器1A",
+        "span1":"¥",
+        "span2":"1099"
+    },
+    {
+        "src":"https://img.youpin.mi-img.com/800_pic/f516291f16e96b17ffb3eb9bdebcd89d.png@base@tag=imgScale&F=webp",
+        "p1":"80g道林纸，180°平摊，日程计划...",
+        "p2":"小米记事本",
+        "p3":"小米记事本",
+        "span1":"¥",
+        "span2":"9.9"
+    },
+    {
+        "src":"https://img.youpin.mi-img.com/shopmain/1ac1d35fc649295742e45bbb7c65dd4f.png@base@tag=imgScale&F=webp?w=800&h=800",
+        "p1":"2.4G无线接收器，即插即用，10...",
+        "p2":"米物无线键鼠套装",
+        "p3":"米物无线键鼠套装",
+        "span1":"¥",
+        "span2":"99"
+    },
+    {
+        "src":"https://img.youpin.mi-img.com/800_pic/dfcc98c73cb4194307edcb3a601ef5ba.png@base@tag=imgScale&F=webp",
+        "p1":"大流量终生免换芯， 全屋净水保...",
+        "p2":"佳尼特全屋净水前置过...",
+        "p3":"佳尼特全屋净水前置过滤器",
+        "span1":"¥",
+        "span2":"849"
+    },
+    {
+        "src":"https://img.youpin.mi-img.com/800_pic/b02501a9918b5964d78344df90ec3504.png@base@tag=imgScale&F=webp",
+        "p1":"只剃毛发,不伤皮肤",
+        "p2":"素士鼻毛修剪器",
+        "p3":"素士鼻毛修剪器",
+        "span1":"¥",
+        "span2":"69"
+    },
+    {
+        "src":"https://img.youpin.mi-img.com/800_pic/e2562788abd27335f6b84aca8c642caa.png@base@tag=imgScale&F=webp",
+        "p1":"可穿戴的人工智能，智能家居控...",
+        "p2":"小米手环4 NFC版",
+        "p3":"小米手环4 NFC版",
+        "span1":"¥",
+        "span2":"229"
+    },
+    {
+        "src":"https://img.youpin.mi-img.com/800_pic/bd015aff2a8377aed9cb6d0d756a7fd0.png@base@tag=imgScale&F=webp",
+        "p1":"单手磨刀，锋利无忧。快速磨刀...",
+        "p2":"火候双轮磨刀器",
+        "p3":"火候双轮磨刀器",
+        "span1":"¥",
+        "span2":"35"
+    },
+    {
+        "src":"https://img.youpin.mi-img.com/800_pic/88b9df6f5c0ab2072784cb4e16a63283.png@base@tag=imgScale&F=webp",
+        "p1":"Teflon材质，纤薄顺滑，超强柔...",
+        "p2":"贝医生牙线 3盒装",
+        "p3":"贝医生牙线 3盒装",
+        "span1":"¥",
+        "span2":"24.8"
+    },
+    {
+        "src":"https://img.youpin.mi-img.com/800_pic/639458b89bcca3de32a737b68e2e000a.png@base@tag=imgScale&F=webp",
+        "p1":"爆米花云弹＋FREE FORCE复合中...",
+        "p2":"米家运动鞋3",
+        "p3":"米家运动鞋3",
+        "span1":"¥",
+        "span2":"199"
+    },
+    {
+        "src":"https://img.youpin.mi-img.com/shopmain/9f01c428390be2f31c224cedcef7b044.png@base@tag=imgScale&F=webp?w=800&h=800",
+        "p1":"国家特证，专业生发防脱，16年...",
+        "p2":"丝域防脱育发组合（国...",
+        "p3":"丝域防脱育发组合（国家特证，专业生发防脱，16年专注黑科技）",
+        "span1":"¥",
+        "span2":"59"
+    },
+    {
+        "src":"https://img.youpin.mi-img.com/800_pic/100556_a657d54262dccfe6256412ea62d93cdb.png@base@tag=imgScale&F=webp",
+        "p1":"全金属机身，日本安来钢刀头，...",
+        "p2":"米家便携电动剃须刀",
+        "p3":"米家便携电动剃须刀",
+        "span1":"¥",
+        "span2":"179"
+    },
+    {
+        "src":"https://img.youpin.mi-img.com/800_pic/afc3e32d7749320b8c42f728135f8c32.png@base@tag=imgScale&F=webp",
+        "p1":"半导体指纹识别，联动米家设备...",
+        "p2":"OJJ智能门锁X1",
+        "p3":"OJJ智能门锁X1",
+        "span1":"¥",
+        "span2":"999"
+    },
+    {
+        "src":"https://img.youpin.mi-img.com/800_pic/f69d23134b7671b3e762b6acde8bb911.png@base@tag=imgScale&F=webp",
+        "p1":"涂氟工艺，刻度尺标记，安全圆...",
+        "p2":"Fizz 特氟龙剪刀",
+        "p3":"Fizz 特氟龙剪刀",
+        "span1":"¥",
+        "span2":"13.5"
+    },
+    {
+        "src":"https://img.youpin.mi-img.com/800_pic/e039b19116ad505b76795d8cdd775001.png@base@tag=imgScale&F=webp",
+        "p1":"蓝牙5.0，多功能触控，4g轻巧，...",
+        "p2":"HAYLOU真无线蓝牙耳机...",
+        "p3":"HAYLOU真无线蓝牙耳机HAYLOU-GT1",
+        "span1":"¥",
+        "span2":"99.9"
+    },
+    {
+        "src":"https://img.youpin.mi-img.com/shopmain/37047a3192d80e9060ce59c65b2d1133.png@base@tag=imgScale&F=webp?w=800&h=800",
+        "p1":"双重防护，树脂镜片，可配度数...",
+        "p2":"小柠檬 舒适黑框双重防...",
+        "p3":"小柠檬 舒适黑框双重防蓝光眼镜 可配度数 专业级中性Pro",
+        "span1":"¥",
+        "span2":"299"
+    },
+    {
+        "src":"https://img.youpin.mi-img.com/800_pic/d45ac00ec411d783ffbe66a9b01b48bd.png@base@tag=imgScale&F=webp",
+        "p1":"14寸车型，三色可选，新国标3C...",
+        "p2":"HIMO 电动自行车T1",
+        "p3":"HIMO 电动自行车T1",
+        "span1":"¥",
+        "span2":"3699"
+    }
+]
+    </script>
+    <script>
+        /* (1) 分析页面的标签 */
+        /* (2) 通过代码来获取标签，继而获取标签中有用的内容 */
+        /* (3) 把数据组织成对象，并且收集对象(装到数组中) */
+        // var oUl = document.getElementsByClassName("p-hreo-nav")[0];
+        // var oLis = oUl.children;
+        // var arr = [];
+        // for (var i = 0, len = oLis.length; i < len; i++) {
+        //     let items = oLis[i];
+        //     let o = {};
+        //     o.src = items.querySelectorAll("img")[0].src;
+        //     o.title = items.querySelectorAll(".title")[0].   ;
+        //     arr.push(o);
+        // }
+        // console.log(arr);
+        // console.log(JSON.stringify(arr));
+
+
+
+        // var oDivs = document.getElementsByClassName("home-good-item");
+        // var c = document.getElementsByClassName("pro-desc")[0]
+        // var arr = [];
+        // arr.push(c.getAttribute("title"));
+        // for (var i = 0, len = oDivs.length; i < len; i++) {
+        //     var items = oDivs[i];
+        //     var o = {}
+        //     o.src = items.querySelectorAll("img")[0].src;
+        //     o.p1 = items.querySelectorAll(".pro-info")[0].innerText;
+        //     o.price = items.querySelectorAll(".pro-price")[0].innerText;
+        //     o.person = items.querySelectorAll(".m-suppory")[0].innerText;
+        //     o.person2 = items.querySelectorAll(".m-persent")[0].innerText;
+        //     arr.push(o);
+        // }
+        // console.log(JSON.stringify(arr));
+
+
+
+        // var oDivs = document.getElementsByClassName("pro-item-category");
+        // var arr = [];
+        // for (let i = 0, len = oDivs.length; i < len; i++) {
+        //     // var items = oDivs[i];
+        //     var o = {};
+        //     o.src = oDivs[i].querySelectorAll("img")[0].src;
+        //     o.p1 = oDivs[i].querySelectorAll(".pro-desc")[0].innerText;
+        //     o.p2 = oDivs[i].querySelectorAll(".pro-info")[0].innerText;
+        //     o.p3 = oDivs[i].querySelectorAll(".pro-info")[0].getAttribute("title");
+        //     o.span1 = oDivs[i].querySelectorAll(".pro-unit")[0].innerText;
+        //     o.span2 = oDivs[i].querySelectorAll(".m-num")[0].innerText;
+        //     arr.push(o);
+        // }
+        // console.log(JSON.stringify(arr));
+        
+        // var oDivs = document.getElementsByClassName("swiper-wrapper");
+        // var arr = []
+        // for (let i = 0,len = oDivs.length;i<len ;i++){
+        //     var o = {};
+        //     o.src = oDivs[i].querySelectorAll("img")[0].src;
+        //     o.p1 = oDivs[i].querySelectorAll(".pro-info")[0].innerText;
+        //     arr.push(o);
+        // }
+        // console.log(JSON.stringify(arr));
+    </script>
+</body>
+
+</html>
